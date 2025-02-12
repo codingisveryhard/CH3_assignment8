@@ -1,9 +1,9 @@
 #include "BaseItem.h"
+#include "SpartaGameState.h"
 #include "Components/SphereComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
 
-// Sets default values
 ABaseItem::ABaseItem()
 {
 	PrimaryActorTick.bCanEverTick = false;
@@ -20,6 +20,14 @@ ABaseItem::ABaseItem()
 
 	Collision->OnComponentBeginOverlap.AddDynamic(this, &ABaseItem::OnItemOverlap);
 	Collision->OnComponentEndOverlap.AddDynamic(this, &ABaseItem::OnItemEndOverlap);
+
+	if (GetWorld()) {
+		// 웨이브가 끝날 시 아이템 정리용으로 작성 하였습니다.
+		ASpartaGameState* SpartaGameState = GetWorld()->GetGameState<ASpartaGameState>();
+		if (SpartaGameState) {
+			SetLifeSpan(SpartaGameState->WaveDuration);
+		}
+	}
 }
 
 void ABaseItem::OnItemOverlap(

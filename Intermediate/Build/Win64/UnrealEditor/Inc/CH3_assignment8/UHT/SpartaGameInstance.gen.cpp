@@ -88,9 +88,14 @@ struct Z_Construct_UClass_USpartaGameInstance_Statics
 		{ "Category", "GameData" },
 		{ "ModuleRelativePath", "Public/SpartaGameInstance.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentWaveIndex_MetaData[] = {
+		{ "Category", "GameData" },
+		{ "ModuleRelativePath", "Public/SpartaGameInstance.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_TotalScore;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_CurrentLevelIndex;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_CurrentWaveIndex;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -104,9 +109,11 @@ struct Z_Construct_UClass_USpartaGameInstance_Statics
 };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_USpartaGameInstance_Statics::NewProp_TotalScore = { "TotalScore", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USpartaGameInstance, TotalScore), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TotalScore_MetaData), NewProp_TotalScore_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_USpartaGameInstance_Statics::NewProp_CurrentLevelIndex = { "CurrentLevelIndex", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USpartaGameInstance, CurrentLevelIndex), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentLevelIndex_MetaData), NewProp_CurrentLevelIndex_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_USpartaGameInstance_Statics::NewProp_CurrentWaveIndex = { "CurrentWaveIndex", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USpartaGameInstance, CurrentWaveIndex), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentWaveIndex_MetaData), NewProp_CurrentWaveIndex_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USpartaGameInstance_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpartaGameInstance_Statics::NewProp_TotalScore,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpartaGameInstance_Statics::NewProp_CurrentLevelIndex,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpartaGameInstance_Statics::NewProp_CurrentWaveIndex,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_USpartaGameInstance_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_USpartaGameInstance_Statics::DependentSingletons[])() = {
@@ -149,10 +156,10 @@ USpartaGameInstance::~USpartaGameInstance() {}
 struct Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaGameInstance_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_USpartaGameInstance, USpartaGameInstance::StaticClass, TEXT("USpartaGameInstance"), &Z_Registration_Info_UClass_USpartaGameInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USpartaGameInstance), 1809720304U) },
+		{ Z_Construct_UClass_USpartaGameInstance, USpartaGameInstance::StaticClass, TEXT("USpartaGameInstance"), &Z_Registration_Info_UClass_USpartaGameInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USpartaGameInstance), 433725678U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaGameInstance_h_4209284210(TEXT("/Script/CH3_assignment8"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaGameInstance_h_1297696493(TEXT("/Script/CH3_assignment8"),
 	Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaGameInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaGameInstance_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
