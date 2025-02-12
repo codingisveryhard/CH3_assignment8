@@ -1,0 +1,5 @@
+---,ItemName,ItemClass,Spawnchance
+SmallCoinItem,"SmallCoin","/Script/Engine.BlueprintGeneratedClass'/Game/Blueprints/BP_SmallCoinItem.BP_SmallCoinItem_C'","30.000000"
+BigCoinItem,"BigCoin","/Script/Engine.BlueprintGeneratedClass'/Game/Blueprints/BP_BigCoinItem.BP_BigCoinItem_C'","10.000000"
+HealingItem,"Healing","/Script/Engine.BlueprintGeneratedClass'/Game/Blueprints/BP_HealingItem.BP_HealingItem_C'","20.000000"
+MineItem,"Mine","/Script/Engine.BlueprintGeneratedClass'/Game/Blueprints/BP_MineItem.BP_MineItem_C'","40.000000"

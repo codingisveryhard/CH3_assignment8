@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\CH3_assignment8.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\CH3_assignment8.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\CH3_assignment8Editor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\CH3_assignment8">
+      <UniqueIdentifier>{22ED1EFD-E953-3498-A445-9E1A559C99DC}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\CH3_assignment8\CH3_assignment8.Build.cs">
+      <Filter>Source\CH3_assignment8</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\CH3_assignment8\CH3_assignment8.cpp">
+      <Filter>Source\CH3_assignment8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\CH3_assignment8.h">
+      <Filter>Source\CH3_assignment8</Filter>
+    </ClCompile>
+    <Filter Include="Source\CH3_assignment8\Private">
+      <UniqueIdentifier>{5BE61A1B-EAF8-318F-947B-30503D6260AA}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\BaseItem.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\BigCoinItem.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\CoinItem.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\HealingItem.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\ItemInterface.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\ItemSpawnRow.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\MineItem.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\SmallCoinItem.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\SpartaCharacter.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\SpartaGameInstance.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\SpartaGameMode.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\SpartaGameState.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\SpartaPlayerController.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Private\SpawnVolume.cpp">
+      <Filter>Source\CH3_assignment8\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\CH3_assignment8\Public">
+      <UniqueIdentifier>{F195DDAB-6AA7-3F11-993C-E8B0C06B23B3}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\BaseItem.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\BigCoinItem.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\CoinItem.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\HealingItem.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\ItemInterface.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\ItemSpawnRow.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\MineItem.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\SmallCoinItem.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\SpartaCharacter.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\SpartaGameInstance.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\SpartaGameMode.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\SpartaGameState.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\SpartaPlayerController.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH3_assignment8\Public\SpawnVolume.h">
+      <Filter>Source\CH3_assignment8\Public</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
