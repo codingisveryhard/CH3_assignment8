@@ -55,29 +55,11 @@ void ASpartaGameState::AddScore(int32 Amount)
 		USpartaGameInstance* SpartaGameInstance = Cast<USpartaGameInstance>(GameInstance);
 		if (SpartaGameInstance) {
 			SpartaGameInstance->AddToScore(Amount);
+
 		}
 	}
 	Score += Amount;
-	if (Score >= RewardScore) {
-		UE_LOG(LogTemp, Error, TEXT("Congratulation! You have reached Reward Score: %d"), RewardScore);
-		UE_LOG(LogTemp, Error, TEXT("Your character gain 20 bonus health!!"));
-		RewardScore += 100;
-		if (GetWorld()) {
-			if (ASpartaPlayerController* PlayerController = Cast<ASpartaPlayerController>(GetWorld()->GetFirstPlayerController())) {
-				if (ASpartaCharacter* Player = Cast<ASpartaCharacter>(PlayerController->GetPawn())) {
-					Player->AddMaxHealth(20);
-				}
-				else
-				{
-					UE_LOG(LogTemp, Warning, TEXT("Failed to get player character."));
-				}
-			}
-			else
-			{
-				UE_LOG(LogTemp, Warning, TEXT("Failed to get player controller."));
-			}
-		}
-	}
+
 }
 
 
@@ -125,7 +107,7 @@ void ASpartaGameState::EndLevel()
 			CurrentLevelIndex++;
 			SpartaGameInstance->CurrentLevelIndex = CurrentLevelIndex;
 
-			if (SpartaGameInstance->TotalScore < TargetScore * CurrentLevelIndex) {
+			if (SpartaGameInstance->TotalScore < TargetScore * (CurrentLevelIndex * 3)) {
 				OnGameOver();
 				return;
 			}
@@ -198,7 +180,7 @@ void ASpartaGameState::EndWave() {
 			CurrentWaveIndex++;
 			SpartaGameInstance->CurrentWaveIndex = CurrentWaveIndex;
 
-			if (SpartaGameInstance->TotalScore < TargetScore * CurrentWaveIndex) {
+			if (SpartaGameInstance->TotalScore < TargetScore * (CurrentWaveIndex + CurrentLevelIndex * 3)) {
 				OnGameOver();
 				return;
 			}
@@ -240,7 +222,7 @@ void ASpartaGameState::UpdateHUD()
 						USpartaGameInstance* SpartaGameInstance = Cast<USpartaGameInstance>(GameInstance);
 						if (SpartaGameInstance) {
 							ScoreText->SetText(FText::FromString(FString::Printf(TEXT("Score: %d"), SpartaGameInstance->TotalScore)));
-							if (SpartaGameInstance->TotalScore >= TargetScore * (CurrentWaveIndex + 1)) {
+							if (SpartaGameInstance->TotalScore >= TargetScore * (CurrentWaveIndex + 1 + CurrentLevelIndex * 3)) {
 								ScoreText->SetColorAndOpacity(FSlateColor(FLinearColor::Yellow));
 							}
 							else ScoreText->SetColorAndOpacity(FSlateColor(FLinearColor::White));

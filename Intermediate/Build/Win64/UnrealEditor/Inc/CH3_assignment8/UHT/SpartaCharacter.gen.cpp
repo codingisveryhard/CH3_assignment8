@@ -107,10 +107,10 @@ DEFINE_FUNCTION(ASpartaCharacter::execAddKey)
 }
 // End Class ASpartaCharacter Function AddKey
 
-// Begin Class ASpartaCharacter Function AddMaxHealth
-struct Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics
+// Begin Class ASpartaCharacter Function ChangeMaxHealth
+struct Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics
 {
-	struct SpartaCharacter_eventAddMaxHealth_Parms
+	struct SpartaCharacter_eventChangeMaxHealth_Parms
 	{
 		float Amount;
 	};
@@ -124,31 +124,31 @@ struct Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics::NewProp_Amount = { "Amount", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SpartaCharacter_eventAddMaxHealth_Parms, Amount), METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics::NewProp_Amount,
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics::NewProp_Amount = { "Amount", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SpartaCharacter_eventChangeMaxHealth_Parms, Amount), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics::NewProp_Amount,
 };
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASpartaCharacter, nullptr, "AddMaxHealth", nullptr, nullptr, Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics::SpartaCharacter_eventAddMaxHealth_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics::SpartaCharacter_eventAddMaxHealth_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth()
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASpartaCharacter, nullptr, "ChangeMaxHealth", nullptr, nullptr, Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics::SpartaCharacter_eventChangeMaxHealth_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics::SpartaCharacter_eventChangeMaxHealth_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth()
 {
 	static UFunction* ReturnFunction = nullptr;
 	if (!ReturnFunction)
 	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth_Statics::FuncParams);
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth_Statics::FuncParams);
 	}
 	return ReturnFunction;
 }
-DEFINE_FUNCTION(ASpartaCharacter::execAddMaxHealth)
+DEFINE_FUNCTION(ASpartaCharacter::execChangeMaxHealth)
 {
 	P_GET_PROPERTY(FFloatProperty,Z_Param_Amount);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->AddMaxHealth(Z_Param_Amount);
+	P_THIS->ChangeMaxHealth(Z_Param_Amount);
 	P_NATIVE_END;
 }
-// End Class ASpartaCharacter Function AddMaxHealth
+// End Class ASpartaCharacter Function ChangeMaxHealth
 
 // Begin Class ASpartaCharacter Function GetHealth
 struct Z_Construct_UFunction_ASpartaCharacter_GetHealth_Statics
@@ -525,7 +525,7 @@ void ASpartaCharacter::StaticRegisterNativesASpartaCharacter()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "AddHealth", &ASpartaCharacter::execAddHealth },
 		{ "AddKey", &ASpartaCharacter::execAddKey },
-		{ "AddMaxHealth", &ASpartaCharacter::execAddMaxHealth },
+		{ "ChangeMaxHealth", &ASpartaCharacter::execChangeMaxHealth },
 		{ "GetHealth", &ASpartaCharacter::execGetHealth },
 		{ "HasKey", &ASpartaCharacter::execHasKey },
 		{ "Look", &ASpartaCharacter::execLook },
@@ -600,7 +600,7 @@ struct Z_Construct_UClass_ASpartaCharacter_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASpartaCharacter_AddHealth, "AddHealth" }, // 3406975978
 		{ &Z_Construct_UFunction_ASpartaCharacter_AddKey, "AddKey" }, // 266247068
-		{ &Z_Construct_UFunction_ASpartaCharacter_AddMaxHealth, "AddMaxHealth" }, // 997311937
+		{ &Z_Construct_UFunction_ASpartaCharacter_ChangeMaxHealth, "ChangeMaxHealth" }, // 676759962
 		{ &Z_Construct_UFunction_ASpartaCharacter_GetHealth, "GetHealth" }, // 2852462423
 		{ &Z_Construct_UFunction_ASpartaCharacter_HasKey, "HasKey" }, // 495328305
 		{ &Z_Construct_UFunction_ASpartaCharacter_Look, "Look" }, // 174860397
@@ -677,10 +677,10 @@ ASpartaCharacter::~ASpartaCharacter() {}
 struct Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASpartaCharacter, ASpartaCharacter::StaticClass, TEXT("ASpartaCharacter"), &Z_Registration_Info_UClass_ASpartaCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASpartaCharacter), 2084893766U) },
+		{ Z_Construct_UClass_ASpartaCharacter, ASpartaCharacter::StaticClass, TEXT("ASpartaCharacter"), &Z_Registration_Info_UClass_ASpartaCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASpartaCharacter), 3491264772U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaCharacter_h_1870930140(TEXT("/Script/CH3_assignment8"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaCharacter_h_4003405732(TEXT("/Script/CH3_assignment8"),
 	Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

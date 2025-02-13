@@ -191,6 +191,8 @@ void ASpartaPlayerController::StartGame()
 	if (USpartaGameInstance* SpartaGameInstance = Cast<USpartaGameInstance>(UGameplayStatics::GetGameInstance(this))) {
 		SpartaGameInstance->CurrentLevelIndex = 0;
 		SpartaGameInstance->TotalScore = 0;
+		SpartaGameInstance->RewardScore = 100;
+		SpartaGameInstance->MaxHealth = 100;
 	}
 
 	UGameplayStatics::OpenLevel(GetWorld(), FName("BasicLevel"));

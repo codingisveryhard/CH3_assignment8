@@ -56,7 +56,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Character| Health")
 	void AddHealth(float Amount);
 	UFUNCTION(BlueprintCallable, Category = "Character| Health")
-	void AddMaxHealth(float Amount);
+	void ChangeMaxHealth(float Amount);
 
 	void OnDeath();
 
@@ -84,5 +84,7 @@ public:
 	int32 JumpCount;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character| Properities")
 	float MouseSensitivity;
+
+	FTimerHandle OverHeadUpdateTimerHandle;
 };
 

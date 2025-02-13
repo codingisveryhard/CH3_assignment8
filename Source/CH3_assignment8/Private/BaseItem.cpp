@@ -53,7 +53,7 @@ void ABaseItem::ActivateItem(AActor* Activator) {
 	UParticleSystemComponent* Particle = nullptr;
 
 	if (PickupParticle) {
-		Particle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), PickupParticle, GetActorLocation(), GetActorRotation(), true);
+		Particle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), PickupParticle, GetActorLocation(), GetActorRotation(), false);
 	}
 
 	if (PickupSound) {

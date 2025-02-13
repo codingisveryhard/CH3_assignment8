@@ -18,7 +18,7 @@ struct FInputActionValue;
 #define FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaCharacter_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execHasKey); \
 	DECLARE_FUNCTION(execAddKey); \
-	DECLARE_FUNCTION(execAddMaxHealth); \
+	DECLARE_FUNCTION(execChangeMaxHealth); \
 	DECLARE_FUNCTION(execAddHealth); \
 	DECLARE_FUNCTION(execGetHealth); \
 	DECLARE_FUNCTION(execStopSprint); \

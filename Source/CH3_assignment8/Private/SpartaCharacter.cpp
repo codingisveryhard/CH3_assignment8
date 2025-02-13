@@ -1,6 +1,7 @@
 #include "SpartaCharacter.h"
 #include "SpartaPlayerController.h"
 #include "SpartaGameState.h"
+#include "SpartaGameInstance.h"
 #include "EnhancedInputComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
@@ -44,7 +45,13 @@ void ASpartaCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UpdateOverheadHP();
+	GetWorldTimerManager().SetTimer(OverHeadUpdateTimerHandle, this, &ASpartaCharacter::UpdateOverheadHP, 0.1f, true);
+
+	USpartaGameInstance* SpartaGameInstance = Cast<USpartaGameInstance>(GetGameInstance());
+	if (SpartaGameInstance) {
+		MaxHealth = SpartaGameInstance->MaxHealth;
+		Health = MaxHealth;
+	}
 }
 
 void ASpartaCharacter::Tick(float DeltaTime)
@@ -199,19 +206,18 @@ float ASpartaCharacter::GetHealth() const
 void ASpartaCharacter::AddHealth(float Amount)
 {
 	Health = FMath::Clamp(Health + Amount, 0.0f, MaxHealth);
-	UpdateOverheadHP();
 }
 
-void ASpartaCharacter::AddMaxHealth(float Amount)
+void ASpartaCharacter::ChangeMaxHealth(float Amount)
 {
-	MaxHealth += Amount;
+	MaxHealth = Amount;
 }
 
 void ASpartaCharacter::AddKey(FName ItemType)
 {
 	Keys.Add(ItemType);
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow,
-		FString::Printf(TEXT("Key added to inventory!")));
+	FString::Printf(TEXT("Key added to inventory!")));
 }
 
 bool ASpartaCharacter::HasKey(FName ItemType)
@@ -224,7 +230,6 @@ float ASpartaCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Damag
 	float ActualDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 
 	Health = FMath::Clamp(Health - DamageAmount, 0.0f, MaxHealth);
-	UpdateOverheadHP();
 
 	if (Health <= 0) {
 		OnDeath();

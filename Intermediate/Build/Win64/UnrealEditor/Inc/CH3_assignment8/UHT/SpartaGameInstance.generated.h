@@ -15,6 +15,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define CH3_ASSIGNMENT8_SpartaGameInstance_generated_h
 
 #define FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaGameInstance_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execAddToHealth); \
 	DECLARE_FUNCTION(execAddToScore);
 
 

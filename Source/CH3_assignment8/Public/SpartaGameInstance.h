@@ -17,11 +17,17 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "GameData")
 	int32 TotalScore;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "GameData")
+	int32 RewardScore;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "GameData")
 	int32 CurrentLevelIndex;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "GameData")
 	int32 CurrentWaveIndex;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "GameData")
+	int32 MaxHealth;
 
 	UFUNCTION(BlueprintCallable, Category = "GameData")
 	void AddToScore(int32 Amount);
+	UFUNCTION(BlueprintCallable, Category = "GameData")
+	void AddToHealth(int32 Amount);
 };
 
