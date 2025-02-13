@@ -50,6 +50,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Menu")
 	UUserWidget* MainMenuWidgetInstance;
 
+	bool IsMenuOpen;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Menu")
+	bool bIsStarted;
 
 	UFUNCTION(BlueprintPure, Category = "HUD")
 	UUserWidget* GetHUdWidget() const;
@@ -57,9 +60,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "HUD")
 	void ShowGameHUD();
 	UFUNCTION(BlueprintCallable, Category = "Menu")
-	void ShowMainMenu(bool bIsRestart);
+	void ShowMainMenu(bool bIsStart = false, bool bIsEnd = false);
 	UFUNCTION(BlueprintCallable, Category = "Menu")
 	void StartGame();
+	UFUNCTION(BlueprintCallable, Category = "Menu")
+	void ResumeGame();
+	UFUNCTION(BlueprintCallable, Category = "Menu")
+	void EndGame();
 
 protected:
 	virtual void BeginPlay() override;

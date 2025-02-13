@@ -20,6 +20,36 @@ UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 UPackage* Z_Construct_UPackage__Script_CH3_assignment8();
 // End Cross Module References
 
+// Begin Class ASpartaPlayerController Function EndGame
+struct Z_Construct_UFunction_ASpartaPlayerController_EndGame_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Menu" },
+		{ "ModuleRelativePath", "Public/SpartaPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASpartaPlayerController_EndGame_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASpartaPlayerController, nullptr, "EndGame", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpartaPlayerController_EndGame_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASpartaPlayerController_EndGame_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASpartaPlayerController_EndGame()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASpartaPlayerController_EndGame_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASpartaPlayerController::execEndGame)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->EndGame();
+	P_NATIVE_END;
+}
+// End Class ASpartaPlayerController Function EndGame
+
 // Begin Class ASpartaPlayerController Function GetHUdWidget
 struct Z_Construct_UFunction_ASpartaPlayerController_GetHUdWidget_Statics
 {
@@ -65,6 +95,36 @@ DEFINE_FUNCTION(ASpartaPlayerController::execGetHUdWidget)
 }
 // End Class ASpartaPlayerController Function GetHUdWidget
 
+// Begin Class ASpartaPlayerController Function ResumeGame
+struct Z_Construct_UFunction_ASpartaPlayerController_ResumeGame_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Menu" },
+		{ "ModuleRelativePath", "Public/SpartaPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASpartaPlayerController_ResumeGame_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASpartaPlayerController, nullptr, "ResumeGame", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpartaPlayerController_ResumeGame_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASpartaPlayerController_ResumeGame_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASpartaPlayerController_ResumeGame()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASpartaPlayerController_ResumeGame_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASpartaPlayerController::execResumeGame)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ResumeGame();
+	P_NATIVE_END;
+}
+// End Class ASpartaPlayerController Function ResumeGame
+
 // Begin Class ASpartaPlayerController Function ShowGameHUD
 struct Z_Construct_UFunction_ASpartaPlayerController_ShowGameHUD_Statics
 {
@@ -100,26 +160,37 @@ struct Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics
 {
 	struct SpartaPlayerController_eventShowMainMenu_Parms
 	{
-		bool bIsRestart;
+		bool bIsStart;
+		bool bIsEnd;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Menu" },
+		{ "CPP_Default_bIsEnd", "false" },
+		{ "CPP_Default_bIsStart", "false" },
 		{ "ModuleRelativePath", "Public/SpartaPlayerController.h" },
 	};
 #endif // WITH_METADATA
-	static void NewProp_bIsRestart_SetBit(void* Obj);
-	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsRestart;
+	static void NewProp_bIsStart_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsStart;
+	static void NewProp_bIsEnd_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsEnd;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-void Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::NewProp_bIsRestart_SetBit(void* Obj)
+void Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::NewProp_bIsStart_SetBit(void* Obj)
 {
-	((SpartaPlayerController_eventShowMainMenu_Parms*)Obj)->bIsRestart = 1;
+	((SpartaPlayerController_eventShowMainMenu_Parms*)Obj)->bIsStart = 1;
 }
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::NewProp_bIsRestart = { "bIsRestart", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(SpartaPlayerController_eventShowMainMenu_Parms), &Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::NewProp_bIsRestart_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::NewProp_bIsStart = { "bIsStart", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(SpartaPlayerController_eventShowMainMenu_Parms), &Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::NewProp_bIsStart_SetBit, METADATA_PARAMS(0, nullptr) };
+void Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::NewProp_bIsEnd_SetBit(void* Obj)
+{
+	((SpartaPlayerController_eventShowMainMenu_Parms*)Obj)->bIsEnd = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::NewProp_bIsEnd = { "bIsEnd", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(SpartaPlayerController_eventShowMainMenu_Parms), &Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::NewProp_bIsEnd_SetBit, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::NewProp_bIsRestart,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::NewProp_bIsStart,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::NewProp_bIsEnd,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASpartaPlayerController, nullptr, "ShowMainMenu", nullptr, nullptr, Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::SpartaPlayerController_eventShowMainMenu_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu_Statics::Function_MetaDataParams) };
@@ -135,10 +206,11 @@ UFunction* Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu()
 }
 DEFINE_FUNCTION(ASpartaPlayerController::execShowMainMenu)
 {
-	P_GET_UBOOL(Z_Param_bIsRestart);
+	P_GET_UBOOL(Z_Param_bIsStart);
+	P_GET_UBOOL(Z_Param_bIsEnd);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->ShowMainMenu(Z_Param_bIsRestart);
+	P_THIS->ShowMainMenu(Z_Param_bIsStart,Z_Param_bIsEnd);
 	P_NATIVE_END;
 }
 // End Class ASpartaPlayerController Function ShowMainMenu
@@ -214,7 +286,9 @@ void ASpartaPlayerController::StaticRegisterNativesASpartaPlayerController()
 {
 	UClass* Class = ASpartaPlayerController::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "EndGame", &ASpartaPlayerController::execEndGame },
 		{ "GetHUdWidget", &ASpartaPlayerController::execGetHUdWidget },
+		{ "ResumeGame", &ASpartaPlayerController::execResumeGame },
 		{ "ShowGameHUD", &ASpartaPlayerController::execShowGameHUD },
 		{ "ShowMainMenu", &ASpartaPlayerController::execShowMainMenu },
 		{ "StartGame", &ASpartaPlayerController::execStartGame },
@@ -295,6 +369,10 @@ struct Z_Construct_UClass_ASpartaPlayerController_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/SpartaPlayerController.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsStarted_MetaData[] = {
+		{ "Category", "Menu" },
+		{ "ModuleRelativePath", "Public/SpartaPlayerController.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_InputMappingContext;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MoveAction;
@@ -310,12 +388,16 @@ struct Z_Construct_UClass_ASpartaPlayerController_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_HUDWidgetInstance;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_MainMenuWidgetClass;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MainMenuWidgetInstance;
+	static void NewProp_bIsStarted_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsStarted;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_ASpartaPlayerController_EndGame, "EndGame" }, // 2783826952
 		{ &Z_Construct_UFunction_ASpartaPlayerController_GetHUdWidget, "GetHUdWidget" }, // 3216679567
+		{ &Z_Construct_UFunction_ASpartaPlayerController_ResumeGame, "ResumeGame" }, // 1994483200
 		{ &Z_Construct_UFunction_ASpartaPlayerController_ShowGameHUD, "ShowGameHUD" }, // 1144208583
-		{ &Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu, "ShowMainMenu" }, // 3236193745
+		{ &Z_Construct_UFunction_ASpartaPlayerController_ShowMainMenu, "ShowMainMenu" }, // 374877743
 		{ &Z_Construct_UFunction_ASpartaPlayerController_StartGame, "StartGame" }, // 2563430014
 		{ &Z_Construct_UFunction_ASpartaPlayerController_ToggleInventory, "ToggleInventory" }, // 3831230775
 	};
@@ -342,6 +424,11 @@ const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASpartaPlayerCo
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASpartaPlayerController_Statics::NewProp_HUDWidgetInstance = { "HUDWidgetInstance", nullptr, (EPropertyFlags)0x00100000000a000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpartaPlayerController, HUDWidgetInstance), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_HUDWidgetInstance_MetaData), NewProp_HUDWidgetInstance_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASpartaPlayerController_Statics::NewProp_MainMenuWidgetClass = { "MainMenuWidgetClass", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpartaPlayerController, MainMenuWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MainMenuWidgetClass_MetaData), NewProp_MainMenuWidgetClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASpartaPlayerController_Statics::NewProp_MainMenuWidgetInstance = { "MainMenuWidgetInstance", nullptr, (EPropertyFlags)0x00100000000a000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpartaPlayerController, MainMenuWidgetInstance), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MainMenuWidgetInstance_MetaData), NewProp_MainMenuWidgetInstance_MetaData) };
+void Z_Construct_UClass_ASpartaPlayerController_Statics::NewProp_bIsStarted_SetBit(void* Obj)
+{
+	((ASpartaPlayerController*)Obj)->bIsStarted = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASpartaPlayerController_Statics::NewProp_bIsStarted = { "bIsStarted", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ASpartaPlayerController), &Z_Construct_UClass_ASpartaPlayerController_Statics::NewProp_bIsStarted_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsStarted_MetaData), NewProp_bIsStarted_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASpartaPlayerController_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpartaPlayerController_Statics::NewProp_InputMappingContext,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpartaPlayerController_Statics::NewProp_MoveAction,
@@ -356,6 +443,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASpartaPl
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpartaPlayerController_Statics::NewProp_HUDWidgetInstance,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpartaPlayerController_Statics::NewProp_MainMenuWidgetClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpartaPlayerController_Statics::NewProp_MainMenuWidgetInstance,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpartaPlayerController_Statics::NewProp_bIsStarted,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ASpartaPlayerController_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ASpartaPlayerController_Statics::DependentSingletons[])() = {
@@ -398,10 +486,10 @@ ASpartaPlayerController::~ASpartaPlayerController() {}
 struct Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaPlayerController_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASpartaPlayerController, ASpartaPlayerController::StaticClass, TEXT("ASpartaPlayerController"), &Z_Registration_Info_UClass_ASpartaPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASpartaPlayerController), 139806511U) },
+		{ Z_Construct_UClass_ASpartaPlayerController, ASpartaPlayerController::StaticClass, TEXT("ASpartaPlayerController"), &Z_Registration_Info_UClass_ASpartaPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASpartaPlayerController), 2598616502U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaPlayerController_h_1537248326(TEXT("/Script/CH3_assignment8"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaPlayerController_h_3880612892(TEXT("/Script/CH3_assignment8"),
 	Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaPlayerController_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

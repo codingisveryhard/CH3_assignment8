@@ -4,6 +4,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "Blueprint/UserWidget.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetSystemLibrary.h"	// 게임 종료 호출을 위해 선언
 #include "Components/TextBlock.h"
 #include "Components/Button.h"
 #include "Components/Widget.h"
@@ -23,6 +24,8 @@ ASpartaPlayerController::ASpartaPlayerController()
 	, HUDWidgetInstance(nullptr)
 	, MainMenuWidgetClass(nullptr)
 	, MainMenuWidgetInstance(nullptr)
+	, IsMenuOpen(false)
+	, bIsStarted(false)
 
 {
 }
@@ -105,8 +108,11 @@ void ASpartaPlayerController::ShowGameHUD()
 	}
 }
 
-void ASpartaPlayerController::ShowMainMenu(bool bIsRestart)
+void ASpartaPlayerController::ShowMainMenu(bool bIsStart, bool bIsEnd)
 {
+	SetPause(true);
+	IsMenuOpen = true;
+	bIsStarted = bIsStart;
 	UE_LOG(LogTemp, Warning, TEXT("IsMenu?"));
 	if (HUDWidgetInstance) {
 		HUDWidgetInstance->RemoveFromParent();
@@ -127,24 +133,45 @@ void ASpartaPlayerController::ShowMainMenu(bool bIsRestart)
 			SetInputMode(FInputModeUIOnly());
 		}
 
-		UButton* StartButton = Cast<UButton>(MainMenuWidgetInstance->GetWidgetFromName(TEXT("StartButton")));
-		UButton* RestartButton = Cast<UButton>(MainMenuWidgetInstance->GetWidgetFromName(TEXT("RestartButton")));
-		if (StartButton && RestartButton) {
-			if (bIsRestart) {
-				StartButton->SetIsEnabled(false);
-				RestartButton->SetIsEnabled(true);
+		UButton* FirstButton = Cast<UButton>(MainMenuWidgetInstance->GetWidgetFromName(TEXT("FirstButton")));
+		UButton* SecondButton = Cast<UButton>(MainMenuWidgetInstance->GetWidgetFromName(TEXT("SecondButton")));
+		if (FirstButton && SecondButton) { 
+			if (bIsStart) {
+				if (bIsEnd) {
+					FirstButton->SetIsEnabled(false);
+					FirstButton->SetVisibility(ESlateVisibility::Hidden);
+				}
+				else {
+					FirstButton->SetIsEnabled(true);
+					FirstButton->SetVisibility(ESlateVisibility::Visible);
+				}
+				
+				SecondButton->SetIsEnabled(true);
+				if (UTextBlock* GameNameText = Cast<UTextBlock>(MainMenuWidgetInstance->GetWidgetFromName("GameNameText"))) {
+					GameNameText->SetVisibility(ESlateVisibility::Hidden);
+				}
+				if (UTextBlock* ThirdButtonText = Cast<UTextBlock>(MainMenuWidgetInstance->GetWidgetFromName("ThirdButtonText"))) {
+					ThirdButtonText->SetText(FText::FromString(FString::Printf(TEXT("MainMenu"))));
+				}
 
 			}
 			else {
-				StartButton->SetIsEnabled(true);
-				RestartButton->SetIsEnabled(false);
+				FirstButton->SetIsEnabled(false);
+				SecondButton->SetIsEnabled(true);
+				FirstButton->SetVisibility(ESlateVisibility::Hidden);
+				if (UTextBlock* GameNameText = Cast<UTextBlock>(MainMenuWidgetInstance->GetWidgetFromName("GameNameText"))) {
+					GameNameText->SetVisibility(ESlateVisibility::Visible);
+				}
+				if (UTextBlock* ThirdButtonText = Cast<UTextBlock>(MainMenuWidgetInstance->GetWidgetFromName("ThirdButtonText"))) {
+					ThirdButtonText->SetText(FText::FromString(FString::Printf(TEXT("Exit"))));
+				}
 			}
 		}
 		else {
-			UE_LOG(LogTemp, Warning, TEXT("StartButton or RestartButton is nullptr"));
+			UE_LOG(LogTemp, Warning, TEXT("FirstButton or SecondButton is nullptr"));
 		}
 
-		if (bIsRestart) {
+		if (bIsEnd) {
 			UFunction* PlayAnimFunc = MainMenuWidgetInstance->FindFunction(FName("PlayGameOverAnim"));
 			if (PlayAnimFunc) {
 				MainMenuWidgetInstance->ProcessEvent(PlayAnimFunc, nullptr);
@@ -168,4 +195,15 @@ void ASpartaPlayerController::StartGame()
 
 	UGameplayStatics::OpenLevel(GetWorld(), FName("BasicLevel"));
 	SetPause(false);
+}
+
+void ASpartaPlayerController::ResumeGame()
+{
+	SetPause(false);
+	ShowGameHUD();
+}
+
+void ASpartaPlayerController::EndGame()
+{
+	UKismetSystemLibrary::QuitGame(GetWorld(), nullptr, EQuitPreference::Quit, false);
 }

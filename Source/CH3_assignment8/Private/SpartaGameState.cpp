@@ -150,7 +150,7 @@ void ASpartaGameState::OnGameOver()
 	if (APlayerController* PlayerController = GetWorld()->GetFirstPlayerController()) {
 		if (ASpartaPlayerController* SpartaPlayerController = Cast<ASpartaPlayerController>(PlayerController)) {
 			SpartaPlayerController->SetPause(true);
-			SpartaPlayerController->ShowMainMenu(true);
+			SpartaPlayerController->ShowMainMenu(true, true);
 		}
 	}
 }
@@ -240,9 +240,10 @@ void ASpartaGameState::UpdateHUD()
 						USpartaGameInstance* SpartaGameInstance = Cast<USpartaGameInstance>(GameInstance);
 						if (SpartaGameInstance) {
 							ScoreText->SetText(FText::FromString(FString::Printf(TEXT("Score: %d"), SpartaGameInstance->TotalScore)));
-							if (SpartaGameInstance->TotalScore >= TargetScore) {
+							if (SpartaGameInstance->TotalScore >= TargetScore * (CurrentWaveIndex + 1)) {
 								ScoreText->SetColorAndOpacity(FSlateColor(FLinearColor::Yellow));
 							}
+							else ScoreText->SetColorAndOpacity(FSlateColor(FLinearColor::White));
 						}
 					}
 				}

@@ -16,6 +16,8 @@ class UUserWidget;
 #define CH3_ASSIGNMENT8_SpartaPlayerController_generated_h
 
 #define FID_VS_CH3_assignment8_Source_CH3_assignment8_Public_SpartaPlayerController_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execEndGame); \
+	DECLARE_FUNCTION(execResumeGame); \
 	DECLARE_FUNCTION(execStartGame); \
 	DECLARE_FUNCTION(execShowMainMenu); \
 	DECLARE_FUNCTION(execShowGameHUD); \

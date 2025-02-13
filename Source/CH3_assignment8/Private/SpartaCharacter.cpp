@@ -245,7 +245,6 @@ void ASpartaCharacter::OpenMenu(const FInputActionValue& value)
 	ASpartaPlayerController* PlayerController = Cast<ASpartaPlayerController>(GetController());
 	if (PlayerController) {
 		PlayerController->ShowMainMenu(true);
-		UE_LOG(LogTemp, Warning, TEXT("Menu!"));
 	}
 }
 
