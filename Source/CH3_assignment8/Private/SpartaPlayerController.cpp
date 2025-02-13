@@ -173,8 +173,18 @@ void ASpartaPlayerController::ShowMainMenu(bool bIsStart, bool bIsEnd)
 
 		if (bIsEnd) {
 			UFunction* PlayAnimFunc = MainMenuWidgetInstance->FindFunction(FName("PlayGameOverAnim"));
+
 			if (PlayAnimFunc) {
 				MainMenuWidgetInstance->ProcessEvent(PlayAnimFunc, nullptr);
+			}
+
+			if (UTextBlock* GameOverText = Cast<UTextBlock>(MainMenuWidgetInstance->GetWidgetFromName("GameOverText"))) {
+				if (USpartaGameInstance* SpartaGameInstance = Cast<USpartaGameInstance>(UGameplayStatics::GetGameInstance(this))) {
+					if (SpartaGameInstance->CurrentLevelIndex >= 3 && SpartaGameInstance->CurrentWaveIndex >= 3) {
+						GameOverText->SetText(FText::FromString(FString::Printf(TEXT("Congratulation!"))));
+					}
+					else GameOverText->SetText(FText::FromString(FString::Printf(TEXT("Game Over!"))));
+				}
 			}
 
 			if (UTextBlock* TotalScoreText = Cast<UTextBlock>(MainMenuWidgetInstance->GetWidgetFromName("TotalScoreText"))) {

@@ -229,6 +229,15 @@ void ASpartaGameState::UpdateHUD()
 						}
 					}
 				}
+				if (UTextBlock* TargetScoreText = Cast<UTextBlock>(HUDWidget->GetWidgetFromName(TEXT("TargetScore")))) {
+					if (UGameInstance* GameInstance = GetGameInstance()) {
+						USpartaGameInstance* SpartaGameInstance = Cast<USpartaGameInstance>(GameInstance);
+						if (SpartaGameInstance) {
+							TargetScoreText->SetText(FText::FromString(FString::Printf(TEXT("Target Score: %d"), TargetScore * (CurrentWaveIndex + 1 + CurrentLevelIndex * 3))));
+							TargetScoreText->SetColorAndOpacity(FSlateColor(FLinearColor::Yellow));
+						}
+					}
+				}
 
 				if (UTextBlock* LevelIndexText = Cast<UTextBlock>(HUDWidget->GetWidgetFromName(TEXT("Level")))) {
 					LevelIndexText->SetText(FText::FromString(FString::Printf(TEXT("Level: %d"), CurrentLevelIndex + 1)));
